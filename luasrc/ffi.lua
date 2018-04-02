@@ -67,7 +67,7 @@ local function checkHDF5Version()
     local min = ffi.new('unsigned int[1]')
     local rel = ffi.new('unsigned int[1]')
     hdf5.C.H5get_libversion(maj, min, rel)
-    if maj[0] ~= 1 or min[0] ~= 8 then
+    if maj[0] ~= 1 then
         error("Unsupported HDF5 version: " .. maj[0] .. "." .. min[0] .. "." .. rel[0])
     end
     hdf5.version = {tonumber(maj[0]), tonumber(min[0]), tonumber(rel[0])}
